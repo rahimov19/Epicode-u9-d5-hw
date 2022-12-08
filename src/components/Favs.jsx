@@ -16,6 +16,7 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 export default function Favs() {
   const favsArr = useSelector((state) => state.favs.content);
@@ -24,9 +25,9 @@ export default function Favs() {
   return (
     <>
       <NavigationBar />
-      <Container>
+      <Container id="favCon">
         {favsArr && favsArr.length > 0 && (
-          <Row className="my-5">
+          <Row>
             <CardGroup>
               {favsArr.map((city, i) => (
                 <Card
@@ -107,7 +108,8 @@ export default function Favs() {
           </Row>
         )}
       </Container>
-      );
+
+      <Footer />
     </>
   );
 }

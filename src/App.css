@@ -11,9 +11,7 @@ body {
   height: 40vmin;
   pointer-events: none;
 }
-.cardtext {
-  height: 20px;
-}
+
 .weathercard {
   margin-right: 1em;
 }
@@ -45,7 +43,8 @@ body {
   color: #61dafb;
 }
 #weatherCon {
-  margin-block: auto;
+  margin-top: auto;
+  margin-bottom: 2em;
   height: 40vh;
   display: flex;
   flex-direction: column;
@@ -56,6 +55,7 @@ body {
   color: rgb(69, 1, 147);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.334);
   border-radius: 30px;
+  padding-block: 2em;
 }
 .navbar {
   position: absolute !important;
@@ -136,4 +136,48 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#searchbutton {
+  background-color: #282c34;
+  border-radius: 10px;
+}
+#footer {
+  height: 2.2em;
+  position: relative !important;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3em;
+}
+#favCon {
+  margin-block: auto;
+}
+.cardart {
+  height: 18em;
+  font-size: 0.8em;
+}
+.cardart img {
+  height: 10em;
+}
+.textcard {
+  text-overflow: "[...]";
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 1em !important;
+}
+#details {
+  background-color: rgba(250, 235, 215, 0.522);
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+}
+#details p {
+  margin-top: 1em;
+}
+#details img {
+  height: 55%;
+  aspect-ratio: 16/9;
 }

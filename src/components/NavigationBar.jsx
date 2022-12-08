@@ -1,10 +1,11 @@
 import React from "react";
-import { Nav, Navbar, Form, Button } from "react-bootstrap";
+import { Nav, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function NavigationBar() {
-  //   const hello = "hello";
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleEvent = (e) => {
     e.preventDefault();
@@ -14,6 +15,22 @@ export default function NavigationBar() {
       type: "Search_Query",
       payload: { inputBar },
     });
+
+    navigate("/search");
+  };
+
+  const handleEvent2 = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const inputBar = document.querySelector("#inputBar").value;
+
+      dispatch({
+        type: "Search_Query",
+        payload: { inputBar },
+      });
+
+      navigate("/search");
+    }
   };
   return (
     <Navbar bg="success" expand="lg">
@@ -31,19 +48,27 @@ export default function NavigationBar() {
             Saved Cities
           </Link>
         </Nav>
-        <Form>
-          <input
-            id="inputBar"
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2"
-            onSubmit={(e) => handleEvent(e)}
-          />
-        </Form>
-        <Button onClick={(e) => handleEvent(e)} variant="outline-success">
-          <Link id="linkNav" to={`/search`}>
-            Search
-          </Link>
+
+        <input
+          id="inputBar"
+          type="text"
+          placeholder="Search"
+          className="mr-sm-2"
+          onKeyUp={(e) => handleEvent2(e)}
+          onChange={(e) => {
+            dispatch({
+              type: "Search_Query",
+              payload: { inputBar: e.target.value },
+            });
+          }}
+        />
+
+        <Button
+          id="searchbutton"
+          onClick={(e) => handleEvent(e)}
+          variant="outline-success"
+        >
+          Search
         </Button>
       </Navbar.Collapse>
     </Navbar>
