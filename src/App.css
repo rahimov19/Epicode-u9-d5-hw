@@ -43,8 +43,8 @@ body {
   color: #61dafb;
 }
 #weatherCon {
-  margin-top: auto;
-  margin-bottom: 2em;
+  margin-block: auto;
+  /* margin-bottom: 2em; */
   height: 40vh;
   display: flex;
   flex-direction: column;
